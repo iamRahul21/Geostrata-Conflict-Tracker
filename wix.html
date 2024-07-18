@@ -467,7 +467,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="arrow" onclick="window.location.href='https://www.thegeostrata.com/conflicttrackerar/article/${markerData.site}'">
+                        <div class="arrow" onclick="window.open('https://www.thegeostrata.com/conflicttrackerar/article/${markerData.site}'),'_blank'">
                             <span>&rarr;</span>
                         </div>
                     </div>`;
@@ -477,7 +477,6 @@
                             content: contentString,
                             ariaLabel: markerData.title,
                         });
-
                         marker.addListener("mouseover", () => {
                             if (currentInfoWindow) {
                                 currentInfoWindow.close();
