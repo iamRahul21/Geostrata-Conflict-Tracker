@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#heading {
+    color: #466d9b;
+    font-size: 25px;
+    margin: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#heading:hover {
+    color: orange
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: orange;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+ /* --------------- LEFT --------------- */
+aside {
+    flex: 1;
+    margin-right: 20px;
+    padding: 30px;
+}
+
+/* .left {
+    background-color: gray;
+    
+} */
+
+/* .map {
+    background-color: red;
+    padding: 40px;
+    margin: 40px;
+} */
+
+#back {
+    text-decoration: none;
+    color: #bd7622;
+    font-weight: bold;
+}
+
+#title {
+    color: grey;
+    padding-top: 30px;
+    font-size: 35px;
+}
+
+#date {
+    font-size: smaller;
+    padding-top: 10px;
+    font-style: italic;
+}
+
+.map {
+    padding-top: 10px;
+}
+
+#contents {
+    /* background-color: red; */
+    margin-top: 50px;
+}
+
+#contents div {
+    margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+/* -------------- MIDDLE -------------- */
+.content {
+    flex: 2;
+}
+
+/* -------------- RIGHT --------------- */
+#parent {
+    position: relative;
+    /* height: 100%; */
+    width: 20%;
+    padding: 3rem 4rem 0rem 4rem; /* 2em */
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.right {
+    flex: 1;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+#newsheading {
+    background-color: #292c31;
+    text-align: center;
+    padding: 18px 0px;
+    color: #b0c1d2;
+    font-weight: bold;
+}
+
+.child {
+    position: relative;
+    height: 500px;
+    /* padding: 0 2em;     */
+    overflow: auto;
+    color: white;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.child::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollable-content {
+    height: 120%;
+    padding-top: .5em;
+}
+
+/* ---------------------------------------------------- */
+.map img {
+    width: 100%;
+    border: 1px solid #333;
+}
+
+.main-image {
+    margin-top: 20px;
+}
+
+.main-image img {
+    width: 100%;
+    border: 1px solid #333;
+}
+
+.main-image p {
+    font-size: 12px;
+    color: #aaa;
+}
+
+article {
+    margin-top: 20px;
+}
+
+article p {
+    color: #ddd;
+}

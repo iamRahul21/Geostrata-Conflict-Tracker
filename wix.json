@@ -1,0 +1,59 @@
+[
+    {
+        "position": {
+            "lat": 48.8566,
+            "lng": 2.3522
+        },
+        "title": "Civil Conflict in Libya",
+        "site": "war-in-gaza",
+        "subtitle": "Civil War",
+        "impact": "Limited",
+        "status": "Unchanging",
+        "icon": {
+            "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+            "scaledSize": {
+                "width": 20,
+                "height": 20
+            }
+        },
+        "image": "https://static.wixstatic.com/media/5fce4c_94640b3ca7764c5599ab4120332d4be8~mv2.jpeg"
+    },
+    {
+        "position": {
+            "lat": 40.7128,
+            "lng": -74.0060
+        },
+        "title": "Statue of Liberty",
+        "site": "statue-of-liberty",
+        "subtitle": "Historic Monument",
+        "impact": "Significant",
+        "status": "Stable",
+        "icon": {
+            "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+            "scaledSize": {
+                "width": 20,
+                "height": 20
+            }
+        },
+        "image": "https://static.wixstatic.com/media/5fce4c_d8408c3f705546ad9ee2ee8144fcead4~mv2.jpg"
+    },
+    {
+        "position": {
+            "lat": 31.4380073,
+            "lng": 32.7329028
+        },
+        "title": "War in Gaza",
+        "site": "war-in-gaza",
+        "subtitle": "War",
+        "impact": "Significant",
+        "status": "Active",
+        "icon": {
+            "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+            "scaledSize": {
+                "width": 20,
+                "height": 20
+            }
+        },
+        "image": "https://static.wixstatic.com/media/5fce4c_d7350e1cb8a34bc29fb4d34ab725556c~mv2.jpeg"
+    }
+]

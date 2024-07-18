@@ -1,0 +1,56 @@
+[
+    {
+        "position": {
+            "lat": 48.8566,
+            "lng": 2.3522
+        },
+        "title": "Civil Conflict in Libya",
+        "subtitle": "Civil War",
+        "impact": "Limited",
+        "status": "Unchanging",
+        "icon": {
+            "url": "marker.svg",
+            "scaledSize": {
+                "width": 20,
+                "height": 20
+            }
+        },
+        "image": "eiffel.jpeg"
+    },
+    {
+        "position": {
+            "lat": 40.7128,
+            "lng": -74.0060
+        },
+        "title": "Statue of Liberty",
+        "subtitle": "Historic Monument",
+        "impact": "Significant",
+        "status": "Stable",
+        "icon": {
+            "url": "marker.svg",
+            "scaledSize": {
+                "width": 20,
+                "height": 20
+            }
+        },
+        "image": "liberty.jpg"
+    },
+    {
+        "position": {
+            "lat": 31.4380073,
+            "lng": 32.7329028
+        },
+        "title": "War in Gaza",
+        "subtitle": "War",
+        "impact": "Significant",
+        "status": "Active",
+        "icon": {
+            "url": "marker.svg",
+            "scaledSize": {
+                "width": 20,
+                "height": 20
+            }
+        },
+        "image": "gaza.jpeg"
+    }
+]

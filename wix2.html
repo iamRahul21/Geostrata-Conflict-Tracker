@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Conflict Tracker</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100vh;
+        }
+
+        /* --------------------------nav-------------------------- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+            background-color: rgba(0, 0, 0, 0);
+            z-index: 999;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ------------------------heading------------------------ */
+        #heading {
+            padding-top: 0;
+            font-size: xxx-large;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* ------------------------buttons------------------------ */
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        /* --------------------------navs------------------------- */
+        #navs {
+            margin-top: 20px;
+            display: flex;
+            margin-left: auto;
+        }
+
+        #nav1,
+        #nav2 {
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        #nav1 {
+            margin-right: 80px;
+        }
+
+        #nav2 {
+            margin-right: 40px;
+        }
+
+        #nav1:hover,
+        #nav2:hover {
+            color: orange;
+        }
+
+        /* -------------------------footer------------------------ */
+        footer {
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            position: fixed;
+            bottom: 15px;
+            font-size: 20px;
+        }
+
+        #footer {
+            color: white;
+            text-decoration: none;
+        }
+
+        #footer:hover {
+            color: orange;
+        }
+
+        /* ----------------------info-window----------------------- */
+        .card {
+            background-color: transparent;
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+        }
+
+        .container1 {
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blank {
+            width: 40px;
+            background-color: rgba(9, 12, 9, 0.779);
+            overflow: auto;
+        }
+
+        .image-container {
+            padding-left: .5%;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container2 {
+            background-color: rgba(9, 12, 9, 0.779);
+            width: 250px;
+        }
+
+        .content {
+            padding: 10px;
+            flex-grow: 1;
+        }
+
+        .header {
+            margin-bottom: 10px;
+        }
+
+        .category {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .details {
+            font-size: 14px;
+        }
+
+        .detail-title {
+            font-weight: bold;
+        }
+
+        .arrow {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            background-color: #4a90e2;
+            font-size: 24px;
+        }
+
+        .gm-style-iw {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        .gm-style-iw-c {
+            padding: 0 !important;
+            background: none !important;
+        }
+
+        .gm-style-iw-d {
+            overflow: hidden !important;
+            background: none !important;
+        }
+
+        .gm-style-iw-tc {
+            display: none !important;
+        }
+
+        .gm-style .gm-ui-hover-effect {
+            display: none !important;
+        }
+
+        .gm-style-iw-t::after {
+            display: none !important;
+        }
+
+        /* Hamburger menu styles */
+        #hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Overlay menu */
+        #overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #overlay a {
+            color: white;
+            font-size: 2em;
+            margin: 20px;
+            text-decoration: none;
+        }
+
+        #overlay a:hover {
+            color: orange;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 1200px) {
+            #nav1 {
+                margin-right: 60px;
+            }
+
+            #nav2 {
+                margin-right: 30px;
+            }
+        }
+
+        /* iPad Pro */
+        @media (max-width: 1024px) {
+            #buttons {
+                flex-direction: row;
+            }
+
+            #nav1,
+            #nav2 {
+                display: none;
+            }
+
+            #hamburger {
+                display: flex;
+            }
+
+            footer {
+                font-size: 20px;
+            }
+
+            #heading {
+                font-size: 44px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            #nav1 {
+                margin-right: 40px;
+            }
+
+            #nav2 {
+                margin-right: 20px;
+            }
+
+            #heading {
+                font-size: xx-large;
+            }
+        }
+
+        @media (max-width: 895px) {
+            #buttons {
+                flex-direction: row;
+            }
+
+            #nav1,
+            #nav2 {
+                display: none;
+            }
+
+            #hamburger {
+                display: flex;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            #heading {
+                font-size: xx-large;
+            }
+        }
+
+        /* iPad mini */
+        @media (max-width: 768px) {
+
+            #nav1,
+            #nav2 {
+                font-size: 12px;
+            }
+
+            footer {
+                font-size: 21px;
+            }
+
+            #heading {
+                font-size: 48px;
+            }
+        }
+
+        /* phones */
+        @media (max-width: 576px) {
+
+            #nav1,
+            #nav2 {
+                font-size: 12px;
+            }
+
+            footer {
+                font-size: 17px;
+            }
+
+            #heading {
+                font-size: 28px;
+            }
+        }
+
+        /* iPhone SE */
+        @media (max-width: 375px) {
+            #footer {
+                font-size: 16px;
+            }
+
+            #heading {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="heading">Conflict Tracker</div>
+        <div id="navs">
+            <a href="methodology.html" id="nav1">Methodology</a>
+            <a href="preventiveAction.html" id="nav2">Peace & Conflict Center</a>
+        </div>
+        <div id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div id="overlay">
+            <a href="methodology.html" id="overlay-nav1">Methodology</a>
+            <a href="preventiveAction.html" id="overlay-nav2">Peace & Conflict Center</a>
+        </div>
+    </nav>
+    <div id="map"></div>
+    <footer><a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a></footer>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
+
+    <script>
+        
+    </script>
+
+</body>
+
+</html>
