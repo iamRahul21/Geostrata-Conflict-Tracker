@@ -474,31 +474,37 @@
                         // https://www.thegeostrata.com/conflicttrackerar/article/${markerData.title}
                         // https://www.thegeostrata.com/conflicttrackerar/conflicttrackerar/article/statue-of-liberty
                         const infowindow = new google.maps.InfoWindow({
-                            content: contentString,
-                            ariaLabel: markerData.title,
-                        });
-                        marker.addListener("mouseover", () => {
-                            if (currentInfoWindow) {
-                                currentInfoWindow.close();
-                            }
-                            infowindow.open({
-                                anchor: marker,
-                                map,
-                                shouldFocus: false,
-                            });
-                            currentInfoWindow = infowindow;
-                        });
+                    content: contentString,
+                    ariaLabel: markerData.title,
+                });
 
-                        google.maps.event.addListener(map, 'click', function () {
-                            if (currentInfoWindow) {
-                                currentInfoWindow.close();
-                                currentInfoWindow = null;
-                            }
-                        });
+                const showInfoWindow = () => {
+                    if (currentInfoWindow) {
+                        currentInfoWindow.close();
+                    }
+                    infowindow.open({
+                        anchor: marker,
+                        map,
+                        shouldFocus: false,
                     });
-                })
-                .catch(error => console.error('Error loading marker data:', error));
-        }
+                    currentInfoWindow = infowindow;
+                };
+
+                marker.addListener("mouseover", showInfoWindow);
+
+                // Add click event listener for touch devices
+                marker.addListener("click", showInfoWindow);
+
+                google.maps.event.addListener(map, 'click', function () {
+                    if (currentInfoWindow) {
+                        currentInfoWindow.close();
+                        currentInfoWindow = null;
+                    }
+                });
+            });
+        })
+        .catch(error => console.error('Error loading marker data:', error));
+}
 
         window.initMap = initMap;
     </script>
