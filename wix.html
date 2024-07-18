@@ -18,6 +18,7 @@
 
         #map {
             height: 100vh;
+            cursor: pointer;
         }
 
         /* --------------------------nav-------------------------- */
@@ -402,7 +403,6 @@
 
         function getZoomLevel() {
             const screenWidth = window.innerWidth;
-
             if (screenWidth <= 576) {
                 return 4;
             } else if (screenWidth <= 768) {
@@ -416,6 +416,9 @@
             }
         }
 
+        // const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        // console.log('isMobile:', isMobile);
+
         function initMap() {
             const zoomLevel = getZoomLevel();
 
@@ -426,8 +429,12 @@
                 mapTypeControl: false,
                 fullscreenControl: false,
                 streetViewControl: false,
-                minZoom: 2,
-                maxZoom: 4,
+                // draggable: false,
+                zoomControl: false,
+                disableDoubleClickZoom: true,
+                maxZoom: 2,
+                minZoom: 4,
+                gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
             });
 
             fetch('https://5fce4cfc-ecde-4711-8030-3e266a18dfb7.usrfiles.com/ugd/5fce4c_e06d80eda13e45fd835c9e08a0def4a8.json')
@@ -471,40 +478,36 @@
                             <span>&rarr;</span>
                         </div>
                     </div>`;
-                        // https://www.thegeostrata.com/conflicttrackerar/article/${markerData.title}
-                        // https://www.thegeostrata.com/conflicttrackerar/conflicttrackerar/article/statue-of-liberty
                         const infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    ariaLabel: markerData.title,
-                });
+                            content: contentString,
+                            ariaLabel: markerData.title,
+                        });
 
-                const showInfoWindow = () => {
-                    if (currentInfoWindow) {
-                        currentInfoWindow.close();
-                    }
-                    infowindow.open({
-                        anchor: marker,
-                        map,
-                        shouldFocus: false,
+                        const showInfoWindow = () => {
+                            if (currentInfoWindow) {
+                                currentInfoWindow.close();
+                            }
+                            infowindow.open({
+                                anchor: marker,
+                                map,
+                                shouldFocus: false,
+                            });
+                            currentInfoWindow = infowindow;
+                        };
+
+                        marker.addListener("mouseover", showInfoWindow);
+                        marker.addListener("click", showInfoWindow);
+
+                        google.maps.event.addListener(map, 'click', function () {
+                            if (currentInfoWindow) {
+                                currentInfoWindow.close();
+                                currentInfoWindow = null;
+                            }
+                        });
                     });
-                    currentInfoWindow = infowindow;
-                };
-
-                marker.addListener("mouseover", showInfoWindow);
-
-                // Add click event listener for touch devices
-                marker.addListener("click", showInfoWindow);
-
-                google.maps.event.addListener(map, 'click', function () {
-                    if (currentInfoWindow) {
-                        currentInfoWindow.close();
-                        currentInfoWindow = null;
-                    }
-                });
-            });
-        })
-        .catch(error => console.error('Error loading marker data:', error));
-}
+                })
+                .catch(error => console.error('Error loading marker data:', error));
+        }
 
         window.initMap = initMap;
     </script>
