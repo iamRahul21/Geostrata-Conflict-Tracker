@@ -416,9 +416,6 @@
             }
         }
 
-        // const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        // console.log('isMobile:', isMobile);
-
         function initMap() {
             const zoomLevel = getZoomLevel();
 
@@ -432,7 +429,7 @@
                 // draggable: false,
                 zoomControl: false,
                 disableDoubleClickZoom: true,
-                maxZoom: 2,
+                maxZoom: 4,
                 minZoom: 4,
                 gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
             });

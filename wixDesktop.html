@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +17,7 @@
 
         #map {
             height: 100vh;
+            cursor: pointer;
         }
 
         /* --------------------------nav-------------------------- */
@@ -205,7 +205,6 @@
             display: none !important;
         }
 
-        /* Hamburger menu styles */
         #hamburger {
             display: none;
             flex-direction: column;
@@ -221,7 +220,6 @@
             transition: 0.4s;
         }
 
-        /* Overlay menu */
         #overlay {
             display: none;
             position: fixed;
@@ -389,9 +387,123 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
 
     <script>
-        
-    </script>
+        document.getElementById('hamburger').addEventListener('click', function () {
+            var overlay = document.getElementById('overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                overlay.style.display = 'block';
+            }
+        });
 
+        let currentInfoWindow = null;
+
+        function getZoomLevel() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 576) {
+                return 4;
+            } else if (screenWidth <= 768) {
+                return 4;
+            } else if (screenWidth <= 992) {
+                return 3;
+            } else if (screenWidth <= 1200) {
+                return 3;
+            } else {
+                return 2;
+            }
+        }
+
+        function initMap() {
+            const zoomLevel = getZoomLevel();
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 39.7308768, lng: 90.5694174 },
+                zoom: zoomLevel,
+                mapId: '86ae51499fc30605',
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                draggable: false,
+                zoomControl: false,
+                disableDoubleClickZoom: true,
+                maxZoom: 2,
+                minZoom: 4,
+                gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
+            });
+
+            fetch('https://5fce4cfc-ecde-4711-8030-3e266a18dfb7.usrfiles.com/ugd/5fce4c_e06d80eda13e45fd835c9e08a0def4a8.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(markerData => {
+                        const marker = new google.maps.Marker({
+                            position: markerData.position,
+                            map: map,
+                            title: markerData.title,
+                            icon: {
+                                url: markerData.icon.url,
+                                scaledSize: new google.maps.Size(markerData.icon.scaledSize.width, markerData.icon.scaledSize.height)
+                            }
+                        });
+
+                        const contentString = `
+                    <div class="card">
+                        <div class="container1">
+                            <div class="image-container">
+                                <img src="${markerData.image}" alt="${markerData.title}"/>
+                            </div>
+                        </div>
+                        <div class="blank"></div>
+                        <div class="container2">
+                            <div class="content">
+                                <div class="header">
+                                    <p class="info-subtitle">${markerData.subtitle}</p>
+                                    <h1 class="info-title">${markerData.title}</h1>
+                                </div>
+                                <div class="details">
+                                    <hr width="100%" size=".01">
+                                    <p><strong>Impact on India:</strong> <span>${markerData.impact}</span></p>
+                                    <hr width="100%" size=".01">
+                                    <p><strong>Conflict Status:</strong> <span>${markerData.status}</span></p>
+                                    <hr width="100%" size=".01">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arrow" onclick="window.open('https://www.thegeostrata.com/conflicttrackerar/article/${markerData.site}'),'_blank'">
+                            <span>&rarr;</span>
+                        </div>
+                    </div>`;
+                        const infowindow = new google.maps.InfoWindow({
+                            content: contentString,
+                            ariaLabel: markerData.title,
+                        });
+
+                        const showInfoWindow = () => {
+                            if (currentInfoWindow) {
+                                currentInfoWindow.close();
+                            }
+                            infowindow.open({
+                                anchor: marker,
+                                map,
+                                shouldFocus: false,
+                            });
+                            currentInfoWindow = infowindow;
+                        };
+
+                        marker.addListener("mouseover", showInfoWindow);
+                        marker.addListener("click", showInfoWindow);
+
+                        google.maps.event.addListener(map, 'click', function () {
+                            if (currentInfoWindow) {
+                                currentInfoWindow.close();
+                                currentInfoWindow = null;
+                            }
+                        });
+                    });
+                })
+                .catch(error => console.error('Error loading marker data:', error));
+        }
+        window.initMap = initMap;
+    </script>
 </body>
 
 </html>
