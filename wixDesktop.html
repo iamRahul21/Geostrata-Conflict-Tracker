@@ -43,8 +43,11 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            margin-top: 10px;
-            cursor: pointer;
+            margin-top: 60px;
+        }
+
+        #heading:hover{
+            color: orange;
         }
 
         /* ------------------------buttons------------------------ */
@@ -52,33 +55,6 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
-        }
-
-        /* --------------------------navs------------------------- */
-        #navs {
-            margin-top: 20px;
-            display: flex;
-            margin-left: auto;
-        }
-
-        #nav1,
-        #nav2 {
-            cursor: pointer;
-            text-decoration: none;
-            color: white;
-        }
-
-        #nav1 {
-            margin-right: 80px;
-        }
-
-        #nav2 {
-            margin-right: 40px;
-        }
-
-        #nav1:hover,
-        #nav2:hover {
-            color: orange;
         }
 
         /* -------------------------footer------------------------ */
@@ -205,44 +181,12 @@
             display: none !important;
         }
 
-        #hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
         .bar {
             width: 25px;
             height: 3px;
             background-color: white;
             margin: 4px 0;
             transition: 0.4s;
-        }
-
-        #overlay {
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        #overlay a {
-            color: white;
-            font-size: 2em;
-            margin: 20px;
-            text-decoration: none;
-        }
-
-        #overlay a:hover {
-            color: orange;
         }
 
         /* Media Queries for responsiveness */
@@ -367,35 +311,12 @@
 <body>
     <nav>
         <div id="heading">Conflict Tracker</div>
-        <div id="navs">
-            <a href="methodology.html" id="nav1">Methodology</a>
-            <a href="preventiveAction.html" id="nav2">Peace & Conflict Center</a>
-        </div>
-        <div id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <div id="overlay">
-            <a href="methodology.html" id="overlay-nav1">Methodology</a>
-            <a href="preventiveAction.html" id="overlay-nav2">Peace & Conflict Center</a>
-        </div>
     </nav>
     <div id="map"></div>
     <footer><a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a></footer>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
-
     <script>
-        document.getElementById('hamburger').addEventListener('click', function () {
-            var overlay = document.getElementById('overlay');
-            if (overlay.style.display === 'block') {
-                overlay.style.display = 'none';
-            } else {
-                overlay.style.display = 'block';
-            }
-        });
-
         let currentInfoWindow = null;
 
         function getZoomLevel() {
@@ -505,5 +426,4 @@
         window.initMap = initMap;
     </script>
 </body>
-
 </html>
