@@ -40,11 +40,11 @@
         /* ------------------------heading------------------------ */
         #heading {
             padding-top: 0;
-            font-size: xxx-large;
+            font-size: xx-large;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            margin-top: 10px;
+            margin-top: 60px;
             cursor: pointer;
         }
 
@@ -53,33 +53,6 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
-        }
-
-        /* --------------------------navs------------------------- */
-        #navs {
-            margin-top: 20px;
-            display: flex;
-            margin-left: auto;
-        }
-
-        #nav1,
-        #nav2 {
-            cursor: pointer;
-            text-decoration: none;
-            color: white;
-        }
-
-        #nav1 {
-            margin-right: 80px;
-        }
-
-        #nav2 {
-            margin-right: 40px;
-        }
-
-        #nav1:hover,
-        #nav2:hover {
-            color: orange;
         }
 
         /* -------------------------footer------------------------ */
@@ -109,6 +82,7 @@
             display: flex;
             overflow: hidden;
             justify-content: center;
+            max-width: 400px;
         }
 
         .container1 {
@@ -206,14 +180,6 @@
             display: none !important;
         }
 
-        /* Hamburger menu styles */
-        #hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
         .bar {
             width: 25px;
             height: 3px;
@@ -222,32 +188,7 @@
             transition: 0.4s;
         }
 
-        /* Overlay menu */
-        #overlay {
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        #overlay a {
-            color: white;
-            font-size: 2em;
-            margin: 20px;
-            text-decoration: none;
-        }
-
-        #overlay a:hover {
-            color: orange;
-        }
-
+        
         /* Media Queries for responsiveness */
         @media (max-width: 1200px) {
             #nav1 {
@@ -352,16 +293,55 @@
             #heading {
                 font-size: 28px;
             }
+            .card {
+                flex-direction: column;
+                max-width: 90vw;
+            }
+
+            .container1 {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .image-container {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto;
+            }
+
+            .blank {
+                display: none;
+            }
+
+            .container2 {
+                width: 100%;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+
+            .details {
+                font-size: 12px;
+            }
+
+            .arrow {
+                width: 100%;
+                height: 40px;
+                font-size: 24px;
+                padding: 5px;
+            }
         }
 
         /* iPhone SE */
         @media (max-width: 375px) {
             #footer {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             #heading {
-                font-size: 24px;
+                font-size: 20px;
             }
         }
     </style>
@@ -370,58 +350,36 @@
 <body>
     <nav>
         <div id="heading">Conflict Tracker</div>
-        <div id="navs">
-            <a href="methodology.html" id="nav1">Methodology</a>
-            <a href="preventiveAction.html" id="nav2">Peace & Conflict Center</a>
-        </div>
-        <div id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <div id="overlay">
-            <a href="methodology.html" id="overlay-nav1">Methodology</a>
-            <a href="preventiveAction.html" id="overlay-nav2">Peace & Conflict Center</a>
-        </div>
     </nav>
     <div id="map"></div>
     <footer><a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a></footer>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
-
     <script>
-        document.getElementById('hamburger').addEventListener('click', function () {
-            var overlay = document.getElementById('overlay');
-            if (overlay.style.display === 'block') {
-                overlay.style.display = 'none';
-            } else {
-                overlay.style.display = 'block';
-            }
-        });
 
         let currentInfoWindow = null;
 
-        function getZoomLevel() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth <= 576) {
-                return 4;
-            } else if (screenWidth <= 768) {
-                return 4;
-            } else if (screenWidth <= 992) {
-                return 3;
-            } else if (screenWidth <= 1200) {
-                return 3;
-            } else {
-                return 2;
-            }
-        }
+        // function getZoomLevel() {
+        //     const screenWidth = window.innerWidth;
+        //     if (screenWidth <= 576) {
+        //         return 4;
+        //     } else if (screenWidth <= 768) {
+        //         return 4;
+        //     } else if (screenWidth <= 992) {
+        //         return 3;
+        //     } else if (screenWidth <= 1200) {
+        //         return 3;
+        //     } else {
+        //         return 2;
+        //     }
+        // }
 
         function initMap() {
-            const zoomLevel = getZoomLevel();
+            // const zoomLevel = getZoomLevel();
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 39.7308768, lng: 90.5694174 },
-                zoom: zoomLevel,
+                zoom: 2,
                 mapId: '86ae51499fc30605',
                 mapTypeControl: false,
                 fullscreenControl: false,
@@ -429,8 +387,8 @@
                 // draggable: false,
                 zoomControl: false,
                 disableDoubleClickZoom: true,
-                maxZoom: 4,
-                minZoom: 4,
+                maxZoom: 2,
+                minZoom: 2,
                 gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
             });
 
@@ -505,10 +463,7 @@
                 })
                 .catch(error => console.error('Error loading marker data:', error));
         }
-
         window.initMap = initMap;
     </script>
-
 </body>
-
 </html>
