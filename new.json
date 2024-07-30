@@ -1,0 +1,211 @@
+[
+    {
+      "position": {
+        "lat": 35.7219,
+        "lng": 51.3347
+      },
+      "title": "The Ripple Effect of Iran's 1979 Revolution",
+      "site": "the-ripple-effect-of-iran's-1979-revolution",
+      "subtitle": "From Revolution to Resistance",
+      "impact": "Limited",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_9ee5198de6234a128463ada49e1cdcd8~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 15.4881,
+        "lng": 114.4048
+      },
+      "title": "China and the south china sea",
+      "site": "china-and-the-south-china-sea",
+      "subtitle": "Beijing diplomatic maneovers",
+      "impact": "Critical",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_cbf1bc057fbd41b893780bc8631693c3~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 50.4504,
+        "lng": 30.5245
+      },
+      "title": "Russia-Ukraine War",
+      "site": "russia-ukraine-war",
+      "subtitle": "Putin’s unshackling of the East",
+      "impact": "Limited",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_25b0e45578864e50b6941cb2af08200c~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 21,
+        "lng": 96
+      },
+      "title": "Myanmar Coup and the Junta",
+      "site": "myanmar-coup-and-the-junta",
+      "subtitle": "The Nation’s Shattered Dawn",
+      "impact": "Significant",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_e777c4e6f5454af0b372732cf4765dac~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 40.2055,
+        "lng": 46.6706
+      },
+      "title": "Nagorno-Karabakh",
+      "site": "nagorno-karabakh",
+      "subtitle": "History of Disputes Since the 1990s",
+      "impact": "Limited",
+      "status": "Unchanged",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_5ba6c7edc87746d3a1280bb6cdff68e5~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 39.0392,
+        "lng": 125.7625
+      },
+      "title": "Understanding The Conflict On The Korean Peninsula",
+      "site": "understanding-the-conflict-on-the-korean-peninsula",
+      "subtitle": "Conflict Tracker",
+      "impact": "Limited",
+      "status": "Unchanging",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_d64be7eff6224ee2a94fe7407a60f61b~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 33.5132,
+        "lng": 36.2768
+      },
+      "title": "Syrian Civil War",
+      "site": "syrian-civil-war",
+      "subtitle": "From entrapment to melancholy",
+      "impact": "Limited",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_ce81c76cdbf84278ab4ae89193101b56~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 2.0371,
+        "lng": 45.3379
+      },
+      "title": "The Perturbed Somalia\n",
+      "site": "the-perturbed-somalia\n",
+      "subtitle": "East African rift\n",
+      "impact": "Limited",
+      "status": "Unchanging",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_cae8453306f440898e1a33e380f96509~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 11.8311,
+        "lng": 13.151
+      },
+      "title": "Boko Haram: A Decade of Terror and Turmoil in West Africa",
+      "site": "boko-haram:-a-decade-of-terror-and-turmoil-in-west-africa",
+      "subtitle": "Revisiting Islamic fundamentalism",
+      "impact": "",
+      "status": "",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_24c6d9e95ae54e7bbfce84120d768f26~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": -2.64239193730441,
+        "lng": 27.775844441867
+      },
+      "title": "Democratic Republic of Congo",
+      "site": "democratic-republic-of-congo",
+      "subtitle": "Background Behind M23’s Rise",
+      "impact": "Limited",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_891ce3aea4cf4c128ff7973e105dac76~mv2.jpg"
+    },
+    {
+      "position": {
+        "lat": 15,
+        "lng": 47
+      },
+      "title": "Yemeni Civil War",
+      "site": "yemeni-civil-war",
+      "subtitle": "Houthis Unleashed",
+      "impact": "Limited",
+      "status": "Worsening",
+      "icon": {
+        "url": "https://static.wixstatic.com/shapes/5fce4c_974dd891b7874ea4a8067bdf338c4dcc.svg",
+        "scaledSize": {
+          "width": 20,
+          "height": 20
+        }
+      },
+      "image": "https://static.wixstatic.com/media/5fce4c_b1f2387e1cdf4906b5254b3614af5f28~mv2.jpg"
+    }
+  ]

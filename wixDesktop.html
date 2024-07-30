@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +47,7 @@
             margin-top: 60px;
         }
 
-        #heading:hover{
+        #heading:hover {
             color: orange;
         }
 
@@ -352,7 +353,7 @@
                 gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
             });
 
-            fetch('https://5fce4cfc-ecde-4711-8030-3e266a18dfb7.usrfiles.com/ugd/5fce4c_e06d80eda13e45fd835c9e08a0def4a8.json')
+            fetch('https://5fce4cfc-ecde-4711-8030-3e266a18dfb7.usrfiles.com/ugd/5fce4c_86bdf6bb678d4009a9d7752355344a1f.json')
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(markerData => {
@@ -381,15 +382,12 @@
                                     <h1 class="info-title">${markerData.title}</h1>
                                 </div>
                                 <div class="details">
-                                    <hr width="100%" size=".01">
                                     <p><strong>Impact on India:</strong> <span>${markerData.impact}</span></p>
-                                    <hr width="100%" size=".01">
                                     <p><strong>Conflict Status:</strong> <span>${markerData.status}</span></p>
-                                    <hr width="100%" size=".01">
                                 </div>
                             </div>
                         </div>
-                        <div class="arrow" onclick="window.open('https://www.thegeostrata.com/conflicttrackerar/article/${markerData.site}'),'_blank'">
+                        <div class="arrow" onclick="window.open('https://www.thegeostrata.com/conflicttracker/article/${markerData.site}'),'_blank'">
                             <span>&rarr;</span>
                         </div>
                     </div>`;
@@ -426,4 +424,5 @@
         window.initMap = initMap;
     </script>
 </body>
+
 </html>
