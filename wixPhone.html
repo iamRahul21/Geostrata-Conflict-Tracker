@@ -48,6 +48,63 @@
             cursor: pointer;
         }
 
+        #heading:hover {
+            color: #fdcb58;
+        }
+
+        #nav-buttons {
+            /* display: none; */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(60px + 0px);
+            white-space: nowrap;
+        }
+
+        #nav-buttons button {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 40px;
+            transition: background-color 0.3s;
+        }
+
+        #nav-buttons button:hover {
+            background-color: #ccc;
+        }
+
+        .btn {
+            width: 90px;
+            height: 30px;
+            background: linear-gradient(to top, #dcb864, #fdcb58, #dca117);
+            color: black;
+            border-radius: 90px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .btn span {
+            font-size: 8px;
+            font-weight: bold;
+            /* text-transform: uppercase; */
+            transition: top 0.5s;
+        }
+
+        .btn-one {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
         /* ------------------------buttons------------------------ */
         #buttons {
             display: flex;
@@ -188,7 +245,6 @@
             transition: 0.4s;
         }
 
-        
         /* Media Queries for responsiveness */
         @media (max-width: 1200px) {
             #nav1 {
@@ -293,6 +349,7 @@
             #heading {
                 font-size: 28px;
             }
+
             .card {
                 flex-direction: column;
                 max-width: 90vw;
@@ -350,13 +407,26 @@
 <body>
     <nav>
         <div id="heading">Conflict Tracker</div>
+        <div id="nav-buttons">
+            <button class="btn">
+                <span class="btn-one"
+                    onclick="window.open('https://www.thegeostrata.com/methodology', '_blank')">Methodology</span>
+            </button>
+            <button class="btn">
+                <span class="btn-one"
+                    onclick="window.open('https://www.thegeostrata.com/conflict-centre', '_blank')">Conflict
+                    Centre</span>
+            </button>
+        </div>
     </nav>
     <div id="map"></div>
-    <footer><a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a></footer>
+    <footer>
+        <p style="text-align: center; margin: 0; padding-bottom: 5px; font-size: small;">Made by</p>
+        <a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a>
+    </footer>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
     <script>
-
         let currentInfoWindow = null;
 
         // function getZoomLevel() {
@@ -379,7 +449,7 @@
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 31.017386, lng: 57.511145 },
-                zoom: 2,
+                zoom: 4,
                 mapId: '86ae51499fc30605',
                 mapTypeControl: false,
                 fullscreenControl: false,
@@ -388,7 +458,7 @@
                 zoomControl: false,
                 disableDoubleClickZoom: true,
                 maxZoom: 2,
-                minZoom: 2,
+                minZoom: 4,
                 gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
             });
 
