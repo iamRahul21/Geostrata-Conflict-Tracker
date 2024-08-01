@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,10 +44,80 @@
             left: 50%;
             transform: translateX(-50%);
             margin-top: 60px;
+            cursor: pointer;
         }
 
         #heading:hover {
-            color: orange;
+            color: #fdcb58;
+        }
+
+        #nav-buttons {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(60px + 20px);
+            white-space: nowrap;
+        }
+
+        #nav-buttons button {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 40px;
+            transition: background-color 0.3s;
+        }
+
+        #nav-buttons button:hover {
+            background-color: #ccc;
+        }
+
+        .btn {
+            width: 140px;
+            height: 30px;
+            background: linear-gradient(to top, #dcb864, #fdcb58, #dca117);
+            color: black;
+            border-radius: 90px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .btn span {
+            font-size: 12px;
+            font-weight: bold;
+            /* text-transform: uppercase; */
+            transition: top 0.5s;
+        }
+
+        .btn-one {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .btn-two {
+            position: absolute;
+            width: 100%;
+            top: 150%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .btn:hover .btn-one {
+            top: -100%;
+        }
+
+        .btn:hover .btn-two {
+            top: 50%;
         }
 
         /* ------------------------buttons------------------------ */
@@ -74,7 +143,7 @@
         }
 
         #footer:hover {
-            color: orange;
+            color: #fdcb58;
         }
 
         /* ----------------------info-window----------------------- */
@@ -312,12 +381,33 @@
 <body>
     <nav>
         <div id="heading">Conflict Tracker</div>
+        <div id="nav-buttons" class="hidden">
+            <button class="btn">
+                <span class="btn-one">Methodology</span>
+                <span class="btn-two" onclick="window.open('https://www.thegeostrata.com/methodology'),'_blank'">Click now</span>
+            </button>
+            <button class="btn">
+                <span class="btn-one">Conflict Centre</span>
+                <span class="btn-two" onclick="window.open('https://www.thegeostrata.com/conflict-centre'),'_blank'">Click now</span>
+            </button>
+        </div>
     </nav>
     <div id="map"></div>
-    <footer><a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a></footer>
+    <footer>
+        <p style="text-align: center; margin: 0; padding-bottom: 5px; font-size: medium;">Made by</p>
+        <a id="footer" href="https://www.thegeostrata.com/">THE GEOSTRATA</a>
+    </footer>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
     <script>
+        document.getElementById("heading").addEventListener("mouseenter", function () {
+            document.getElementById("nav-buttons").style.display = "block";
+        });
+
+        document.getElementById("nav-buttons").addEventListener("mouseleave", function () {
+            document.getElementById("nav-buttons").style.display = "none";
+        });
+
         let currentInfoWindow = null;
 
         function getZoomLevel() {
@@ -424,5 +514,4 @@
         window.initMap = initMap;
     </script>
 </body>
-
 </html>
