@@ -484,6 +484,7 @@
                         const infowindow = new google.maps.InfoWindow({
                             content: contentString,
                             ariaLabel: markerData.title,
+                            pixelOffset: new google.maps.Size(0, -80)
                         });
 
                         const showInfoWindow = () => {
