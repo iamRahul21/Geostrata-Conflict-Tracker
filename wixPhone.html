@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +35,7 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         /* ------------------------heading------------------------ */
         #heading {
             padding-top: 0;
@@ -47,13 +46,12 @@
             margin-top: 60px;
             cursor: pointer;
         }
-
+        
         #heading:hover {
             color: #fdcb58;
         }
-
+        
         #nav-buttons {
-            /* display: none; */
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -93,7 +91,6 @@
         .btn span {
             font-size: 8px;
             font-weight: bold;
-            /* text-transform: uppercase; */
             transition: top 0.5s;
         }
 
@@ -139,32 +136,32 @@
             display: flex;
             overflow: hidden;
             justify-content: center;
-            max-width: 400px;
+            max-width: 300px;
         }
 
         .container1 {
-            width: 50px;
+            width: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .blank {
-            width: 40px;
+            width: 10px;
             background-color: rgba(9, 12, 9, 0.779);
             overflow: auto;
         }
 
         .image-container {
             padding-left: .5%;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             position: absolute;
         }
 
         .image-container img {
-            width: 100%;
-            height: auto;
+            width: 100px;
+            height: 100px;
         }
 
         .container2 {
@@ -174,6 +171,7 @@
 
         .content {
             padding: 10px;
+            padding-top: 50px;
             flex-grow: 1;
         }
 
@@ -192,7 +190,7 @@
         }
 
         .details {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .detail-title {
@@ -204,9 +202,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
+            width: 30px;
             background-color: #4a90e2;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .gm-style-iw {
@@ -430,37 +428,20 @@
     <script>
         let currentInfoWindow = null;
 
-        // function getZoomLevel() {
-        //     const screenWidth = window.innerWidth;
-        //     if (screenWidth <= 576) {
-        //         return 4;
-        //     } else if (screenWidth <= 768) {
-        //         return 4;
-        //     } else if (screenWidth <= 992) {
-        //         return 3;
-        //     } else if (screenWidth <= 1200) {
-        //         return 3;
-        //     } else {
-        //         return 2;
-        //     }
-        // }
-
         function initMap() {
-            // const zoomLevel = getZoomLevel();
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 31.017386, lng: 57.511145 },
-                zoom: 4,
+                zoom: 2,
                 mapId: '86ae51499fc30605',
                 mapTypeControl: false,
                 fullscreenControl: false,
                 streetViewControl: false,
-                // draggable: false,
                 zoomControl: false,
                 disableDoubleClickZoom: true,
-                maxZoom: 2,
-                minZoom: 4,
-                gestureHandling: 'auto'  // single-finger dragging, might need to change to greedy
+                maxZoom: 4,
+                minZoom: 2,
+                gestureHandling: 'auto'
             });
 
             fetch('https://5fce4cfc-ecde-4711-8030-3e266a18dfb7.usrfiles.com/ugd/5fce4c_86bdf6bb678d4009a9d7752355344a1f.json')
@@ -473,7 +454,7 @@
                             title: markerData.title,
                             icon: {
                                 url: markerData.icon.url,
-                                scaledSize: new google.maps.Size(markerData.icon.scaledSize.width, markerData.icon.scaledSize.height)
+                                scaledSize: new google.maps.Size(15, 15)
                             }
                         });
 
