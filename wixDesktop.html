@@ -141,10 +141,6 @@
             text-decoration: none;
         }
 
-        #footer:hover {
-            color: #fdcb58;
-        }
-
         /* ----------------------info-window----------------------- */
         .card {
             background-color: transparent;
@@ -394,8 +390,7 @@
     <div id="map"></div>
     <footer>
         <p style="text-align: center; margin: 0; padding-bottom: 5px; font-size: medium;">Made by</p>
-        <a id="footer">THE GEOSTRATA</a>
-        <p style="text-align: center; margin: 0; padding-bottom: 5px; font-size: medium;">in Bharat</p>
+        <a id="footer">The Geostrata in Bharat</a>
     </footer>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCr5BUA7w7L2JzIzBBdGuXdBpeDon4cA&map_ids=86ae51499fc30605&callback=initMap"></script>
@@ -409,21 +404,6 @@
         });
 
         let currentInfoWindow = null;
-
-        function getZoomLevel() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth <= 576) {
-                return 4;
-            } else if (screenWidth <= 768) {
-                return 4;
-            } else if (screenWidth <= 992) {
-                return 3;
-            } else if (screenWidth <= 1200) {
-                return 3;
-            } else {
-                return 2;
-            }
-        }
 
         function initMap() {
             const zoomLevel = getZoomLevel();
